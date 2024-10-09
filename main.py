@@ -108,7 +108,7 @@ def dns_scan(domain):
             type_text_with_gradient(f" - {record.exchange.to_text()} (Preference: {record.preference})", (0, 255, 0), (0, 0, 255), delay=0.02)
 
     except dns.resolver.NoAnswer:
-        print(Fore.RED + "[!] This domain/ip does not exist." + Style.RESET_ALL)
+        print(Fore.RED + "[!] This domain/ip does not exist, or I was not able to find it." + Style.RESET_ALL)
     except dns.resolver.Timeout:
         print(Fore.RED + "[!] DNS query timed out." + Style.RESET_ALL)
     except Exception as e:
