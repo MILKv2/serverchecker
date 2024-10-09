@@ -1,16 +1,3 @@
-import subprocess
-import sys
-
-def install_requirements():
-    try:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
-    except Exception as e:
-        print(f"[!] An error occurred while installing requirements: {str(e)}")
-        sys.exit(1)
-
-install_requirements()
-
-
 from colorama import Fore, Style, init
 import time
 import requests
