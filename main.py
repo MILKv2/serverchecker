@@ -1,3 +1,20 @@
+import subprocess
+import sys
+import os
+
+def install_requirements():
+    if os.path.exists("requirements.txt"):
+        try:
+            subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-r', 'requirements.txt'])
+            print("Requirements installed.")
+        except subprocess.CalledProcessError as e:
+            print(f"[!] Could not install requirements: {str(e)}")
+    else:
+        print("[!] File requirements.txt not found.")
+
+if __name__ == "__main__":
+    install_requirements()
+
 from colorama import Fore, Style, init
 import time
 import requests
