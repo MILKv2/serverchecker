@@ -74,8 +74,6 @@ def check_server_status(address):
             type_text_with_gradient(f"MOTD: {motd}", (255, 0, 0), (0, 0, 255), delay=0.02)
             type_text_with_gradient(f"Plugins: {', '.join(plugins) if isinstance(plugins, list) else plugins}", (255, 0, 0), (0, 0, 255), delay=0.02)
             type_text_with_gradient(f"Info: {info}", (255, 0, 0), (0, 0, 255), delay=0.02)
-
-            type_text_with_gradient("\nScanning DNS...\n", (255, 165, 0), (0, 0, 255), delay=0.05)
             time.sleep(1)
 
         else:
