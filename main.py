@@ -2,6 +2,7 @@ from colorama import Fore, Style, init
 import time
 import requests
 import dns.resolver
+import sys
 
 init()
 
@@ -75,9 +76,11 @@ def check_server_status(address):
             type_text_with_gradient(f"Plugins: {', '.join(plugins) if isinstance(plugins, list) else plugins}", (255, 0, 0), (0, 0, 255), delay=0.02)
             type_text_with_gradient(f"Info: {info}", (255, 0, 0), (0, 0, 255), delay=0.02)
             time.sleep(1)
+            main()
 
         else:
             print(Fore.RED + "[!] Server is offline." + Style.RESET_ALL)
+            main()
             
     except requests.exceptions.HTTPError as http_err:
         print(Fore.RED + "[!] This domain/ip does not exist." + Style.RESET_ALL)
@@ -135,10 +138,13 @@ def main():
 
     print(Fore.GREEN + "\n\nWelcome, choose an option to continue:\n" + Style.RESET_ALL)
     rgb_gradient("[1] Full scan\n", start_color, end_color)
+    rgb_gradient("[2] Exit\n", start_color, end_color)
     option = int(input(Fore.GREEN + "Your option: " + Style.RESET_ALL))
 
     if option == 1:
         full_scan()
+    elif option == 2:
+        sys.exit()
     else:
         print(Fore.RED + "\nChoose valid option.\n" + Style.RESET_ALL)
 
